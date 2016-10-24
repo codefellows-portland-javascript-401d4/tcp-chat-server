@@ -25,4 +25,11 @@ describe('ChatRoom', () => {
     assert.isNotOk(client1.received);
   });
 
+  it ('broadcasts messages to all clients', () => {
+    let bcast_msg = 'This is a broadcast.';
+    chatRoom.broadcast(bcast_msg);
+    assert.equal(client1.received, `Broadcast: ${bcast_msg}\n`);
+    assert.equal(client2.received, `Broadcast: ${bcast_msg}\n`);
+  });
+  
 });
