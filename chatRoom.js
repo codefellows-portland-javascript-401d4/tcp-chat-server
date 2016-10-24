@@ -7,16 +7,16 @@ module.exports = class ChatRoom {
     this.clients = [];
   }
 
-nick() {
-  return generate({alliterative: true}).dashed;
-}
+  nick() {
+    return generate({alliterative: true}).dashed;
+  }
 
   add(client) {
     client.nick = this.nick();
     this.clients.push(client);
     this.clients.forEach(c => {
-    client.write('Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
-    c.write(`${client.nick} has connected` + '\n');
+      client.write('Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
+      c.write(`${client.nick} has connected` + '\n');
     });
     console.log(`${client.nick} has connected`);
   }

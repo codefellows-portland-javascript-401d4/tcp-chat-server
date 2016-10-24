@@ -13,10 +13,10 @@ const server = net.createServer(client => {
     } else if (message.substring(0,10) === '/newRandom'){
       chatRoom.changeNickRandom(client, message);
     } else {
-    chatRoom.send(client, message);
+      chatRoom.send(client, message);
     }
   });
-
+  
   client.on('close', () => {
     chatRoom.remove(client);
   });
