@@ -3,6 +3,7 @@
 // You can connect clients using telnet command:
 
 // https://procurity.wordpress.com/2013/07/15/beginners-guide-to-telnet-basics/
+
 // Manage connected clients when they "register" (on server connection and socket close)
 
 // Clients should be given a randomly generated nickname used to identify who typed a message in the chat
@@ -17,32 +18,36 @@
 // But you still should unit test modules (another reason to decouple managing clients from the server) and for this assignment you should use chai as your assertion library (you can choose either BDD or Assert api - just be consistent).
 
 const net = require("net");
+var generateName = require("sillyname");
 
 let i = 1;
 const clients = [];
 
 const server = net.createServer(client => {
   const name = "client " + (i++);
+ 	const nickname = generateName();
   client.setEncoding("utf-8");
 
   clients.push(client);
 
   client.on("data", message => {
-        //send this to all the other clients
-      clients.forEach(c => {
-            // if same as sender, return (exit this particular forEach invocation)
-          if(c === client) return;
-            // otherwise send the message
-          c.write(`${name}: ${message}`);
-        });
+    //first of Windows Telnet workarounds as it is set to single character input
+    client.message += message;
+    clients.forEach(c => {
+      if(c === client) return; //return to .forEach "loop"
+      if (message.indexOf("\r\n") !== -1) {
+        c.write(nickname + ": " + client.message);
+     //...and reset message string.
+        client.message = "";
+      }
     });
+  });
 
   client.on("close", () => {
-        // remove from array:
-      const index = clients.indexOf(client);
-      if (index !== -1) clients.splice(index, 1);
-      console.log(`client ${name} has disconnected`);
-    });
+    const index = clients.indexOf(client);
+    if (index !== -1) clients.splice(index, 1);
+    console.log(`${nickname} (${name}) has disconnected`);
+  });
 });
 
 const port = 65000;
