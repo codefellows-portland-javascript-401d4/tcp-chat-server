@@ -13,9 +13,9 @@ module.exports = class ChatRoom {
     this.clients.forEach(c => {
       // Allow user to change name by starting message with /nick
       if (message.startsWith('/nick ')) {
-        let newName = message.slice(6, message.length -2);
-        console.log(message.length);
-        console.log(newName);
+        // remove linefeed or return chars from end of string
+        message = message.replace(/(\r\n|\n|\r)/,'');
+        let newName = message.slice(6, message.length);
         sender.name = newName;
         c.write('You chose a new name: ' + sender.name + '\n');
       } else {

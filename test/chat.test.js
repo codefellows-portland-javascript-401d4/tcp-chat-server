@@ -38,4 +38,10 @@ describe('Chat room', () => {
     assert.isNotOk(chatter2.received);
   });
 
+  it('renames when requested with /nick', () => {
+    chatRoom.send(chatter3, '/nick tomTimmel');
+    assert.equal(chatter3.name, 'tomTimmel');
+  });
+
+
 });
