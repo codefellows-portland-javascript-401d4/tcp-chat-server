@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "test": "npm run test:run",
     "test:run": "mocha -R nyan",
-    "test:watch": "npm run test:run -- -w" 
+    "test:watch": "npm run test:run -- -w"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/nthugon/tcp-chat-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.8.1",
     "mocha": "^3.1.2"
   }
 }
