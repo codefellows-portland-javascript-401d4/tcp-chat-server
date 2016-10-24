@@ -1,0 +1,27 @@
+{
+  "name": "tyristomcat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "lint": "eslint .",
+    "test:watch": "npm run test:run -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/risafletcher/file-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/risafletcher/file-store/issues"
+  },
+  "homepage": "https://github.com/risafletcher/file-store#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  }
+}
