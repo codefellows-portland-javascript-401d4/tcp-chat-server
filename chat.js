@@ -16,8 +16,8 @@ module.exports = class ChatRoom {
         // remove linefeed or return chars from end of string
         message = message.replace(/(\r\n|\n|\r)/,'');
         let newName = message.slice(6, message.length);
+        c.write(sender.name + ' chose a new name: ' + newName + '\n');
         sender.name = newName;
-        c.write('You chose a new name: ' + sender.name + '\n');
       } else {
         if(c === sender) return;
         c.write(`${sender.name}: ${message}`);
