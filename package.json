@@ -26,5 +26,8 @@
     "chai": "^3.5.0",
     "eslint": "^3.8.1",
     "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "nicknames": "^1.0.2"
   }
 }
