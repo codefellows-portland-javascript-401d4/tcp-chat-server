@@ -1,0 +1,24 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefellows-portland-javascript-401d4/tcp-chat-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefellows-portland-javascript-401d4/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/codefellows-portland-javascript-401d4/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  }
+}
