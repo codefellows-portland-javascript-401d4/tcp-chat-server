@@ -11,8 +11,17 @@ module.exports = class ChatRoom {
 
   send(sender, message) {
     this.clients.forEach(c => {
-      if(c === sender) return;
-      c.write(`${sender.name}: ${message}`);
+      // Allow user to change name by starting message with /nick
+      if (message.startsWith('/nick ')) {
+        let newName = message.slice(6, message.length -2);
+        console.log(message.length);
+        console.log(newName);
+        sender.name = newName;
+        c.write('You chose a new name: ' + sender.name + '\n');
+      } else {
+        if(c === sender) return;
+        c.write(`${sender.name}: ${message}`);
+      }
     });
   }
 
@@ -20,5 +29,5 @@ module.exports = class ChatRoom {
     const index = this.clients.indexOf(client);
     if (index !== -1) this.clients.splice(index, 1);
   }
-
+  
 };
