@@ -1,0 +1,27 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "npm run test:run",
+    "test:run": "mocha -R nyan",
+    "test:watch": "npm run test:run -- -w" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthugon/tcp-chat-server.git"
+  },
+  "author": "@nthugon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthugon/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/nthugon/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
