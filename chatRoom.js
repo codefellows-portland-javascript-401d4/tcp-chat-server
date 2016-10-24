@@ -14,6 +14,10 @@ nick() {
   add(client) {
     client.nick = this.nick();
     this.clients.push(client);
+    this.clients.forEach(c => {
+    client.write('Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
+    c.write(`${client.nick} has connected` + '\n');
+    });
     console.log(`${client.nick} has connected`);
   }
 
@@ -32,19 +36,24 @@ nick() {
 
   changeNick(client, message) {
     let oldNick = client.nick;
-    let newNick = message.split(' ')[1];
+    let newNick = message.substring(message.indexOf(' ') + 1);
+    console.log(newNick);
     client.nick = newNick;
     this.clients.forEach(c => {
-      c.write(`${oldNick} has changed their name to ${client.nick}`);
+      c.write(`${oldNick} has changed their name to ${client.nick}` + '\n');
     });
+   
+    
   }
 
-  changeNickRandom(client) {
+  changeNickRandom(client, message) {
     let oldNick = client.nick;
-    client.nick = this.nick;
+    client.nick = this.nick();
     this.clients.forEach(c => {
-      c.write(`${oldNick} has changed their name to ${client.nick}`);
+      c.write(`${oldNick} has changed their name to ${client.nick}` + '\n');
     });
+    
   }
+    
 
 };
