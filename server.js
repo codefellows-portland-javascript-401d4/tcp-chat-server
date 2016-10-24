@@ -1,26 +1,20 @@
 'use strict';
 
 const net = require('net');
-
-let clientCounter = 1;
-const clients = [];
+const ChatRoom = require('./chat-room');
+const chatRoom = new ChatRoom();
 
 const server = net.createServer(client => {
-    clients.push(client);
-    const name = `Client ${clientCounter++}`;
-    console.log(`${name} connected`);
     client.setEncoding('utf-8');
 
+    chatRoom.add(client);
+
     client.on('data', msg => {
-        clients.forEach(c => {
-            if (c === client) return;
-            c.write(`${name}: ${msg}`);
-        });
+        chatRoom.send(client, msg);
     });
 
     client.on('close', () => {
-        console.log(`${name} has disconnected`);
-        //TODO remove client from clients array
+        chatRoom.remove(client);
     });
 });
 
