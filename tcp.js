@@ -6,8 +6,8 @@ const server = net.createServer(client => {
     console.log('client', username, 'connected');
 
     client.setEncoding('utf-8');
-
-    // okay to use message v. data?
+    
+    
     client.on('data', message => {
         // insert stylized package here?
 
