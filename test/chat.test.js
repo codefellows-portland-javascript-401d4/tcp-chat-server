@@ -4,7 +4,7 @@ var assert = require('chai').assert;
 var ChatRoom = require('../chat-room');
 
 describe('chat room', () => {
-    
+
     const chatRoom = new ChatRoom();
 
     class MockClient {
