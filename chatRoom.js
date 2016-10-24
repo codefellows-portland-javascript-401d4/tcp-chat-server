@@ -4,13 +4,17 @@ const net = require('net');
 module.exports = class ChatRoom {
 
   constructor() {
-    this.nick = generate({alliterative: true}).dashed;
     this.clients = [];
   }
 
+nick() {
+  return generate({alliterative: true}).dashed;
+}
+
   add(client) {
-    client.nick = this.nick;
+    client.nick = this.nick();
     this.clients.push(client);
+    console.log(`${client.nick} has connected`);
   }
 
   send(sender, message) {
@@ -23,6 +27,7 @@ module.exports = class ChatRoom {
   remove(client) {
     const index = this.clients.indexOf(client);
     if (index !== -1) this.clients.splice(index, 1);
+    console.log(`${client.nick} has disconnected`);
   }
 
   changeNick(client, message) {
