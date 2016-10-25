@@ -1,6 +1,6 @@
 const net = require('net')
 const dogs = require('dog-ascii-faces');
-const chatRoom = require('../DogChat');
+const chatRoom = require('./lib/DogChat');
 const dogChat = new DogChat();
 
 const server = net.createServer(client => {
