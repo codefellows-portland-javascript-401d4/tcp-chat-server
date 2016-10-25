@@ -44,7 +44,7 @@ module.exports = class AIM {
             user.name = `${userName}${numAtEnd}`;
             this.users.push(user);
         }
-        this.users.forEach((user) => console.log(user.name));
+        // this.users.forEach((user) => console.log(user.name));
         console.log(`User ${user.name} has connected.`);
     }
 
