@@ -14,6 +14,10 @@ describe('chat-module', () => {
     var client1 = new MockClient();
     var client2 = new MockClient();
 
+    it.only('test the test', () =>{
+        assert(true);
+    })
+
     it('should add a new member', () => {
         assert.equal(chat.clients.length, 0, 'is not an empty array');
         chat.add(client1);
