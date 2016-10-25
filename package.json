@@ -4,7 +4,9 @@
   "description": "",
   "main": "chat-module.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "npm run lint",
+    "lint": "eslint *.js",
+    "test": "mocha",
     "start": "node server.js"
   },
   "repository": {

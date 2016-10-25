@@ -1,4 +1,4 @@
-const chatModule = require('./chat-module');
+const chatModule = require('../chat-module');
 const assert = require('chai').assert;
 
 describe('chat-module', () => {
