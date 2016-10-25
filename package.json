@@ -4,8 +4,6 @@
   "description": "",
   "main": "chat-module.js",
   "scripts": {
-    "pretest": "npm run lint",
-    "lint": "eslint *.js",
     "test": "mocha",
     "start": "node server.js"
   },
