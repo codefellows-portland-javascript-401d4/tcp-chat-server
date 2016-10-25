@@ -1,0 +1,24 @@
+{
+  "name": "tcp-chat-server-lab-assignment",
+  "version": "1.0.0",
+  "description": "TCP chat server assignment",
+  "main": "ChatRoom.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanPickard/tcp-chat-server.git"
+  },
+  "author": "Nathan Pickard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanPickard/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/NathanPickard/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  }
+}
