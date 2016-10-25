@@ -1,11 +1,11 @@
 const net = require('net');
 const nicknames = require('nicknames');
 
-const chat = {};
+const client = {};
 
-chat.clients = [];
+client.clients = [];
 
-chat.server = net.createServer(client => {
+c.server = net.createServer(client => {
     const name =  nicknames.allRandom();
     client.setEncoding('utf-8');
 
@@ -23,16 +23,16 @@ chat.server = net.createServer(client => {
 
     client.on('close', () => {
         // remove from array:
-        const index = chat.clients.indexOf(client);
-        if (index !== -1) chat.clients.splice(index, 1);
+        const index = client.clients.indexOf(client);
+        if (index !== -1) client.clients.splice(index, 1);
         console.log(`client ${name} has disconnected`);
     });
 });
 
-chat.port = 65000;
-chat.server.listen(chat.port, err => {
+client.port = 65000;
+client.server.listen(client.port, err => {
     if (err) console.log('ERROR!', err);
-    else console.log('server listening on port', chat.port);
+    else console.log('server listening on port', client.port);
 });
 
-module.exports = chat;
+module.exports = client;
