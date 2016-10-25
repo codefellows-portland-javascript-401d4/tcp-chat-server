@@ -6,7 +6,7 @@
 module.exports = class ChatRoom {
 
     constructor() {
-        this.users = ['sonic', 'mario', 'kirby', 'pacman', 'charizard', 'link', 'samus'];
+        this.users = ['Sonic', 'Mario', 'Kirby', 'Pacman', 'Charizard', 'Link', 'Samus'];
         this.nameCounter = 1;
         this.clientCounter = 1;
         this.clients = [];
@@ -22,6 +22,11 @@ module.exports = class ChatRoom {
         };
         this.currentUsers.push(client.name);
         this.clients.push(client);
+        client.write(`Welcome ${client.name}! \n`);
+        this.clients.forEach(c => {
+            if (c === client) return;
+            c.write(`${client.name} has joined! \n`)
+        });
         console.log(`${client.name} has connected!`);
         console.log(this.currentUsers);
     }
@@ -32,6 +37,13 @@ module.exports = class ChatRoom {
             this.clients.splice(index, 1);
             this.currentUsers.splice(index, 1);
         }
+        this.clients.forEach(c => {
+            if (c === client) {
+                // c.write(`Goodbye ${client.name}! \n`);
+                return;
+            }
+            c.write(`${client.name} has disconnected! \n`)
+        });
         console.log(`${client.name} has disconnected!`);
         console.log(this.currentUsers);
 
@@ -39,7 +51,10 @@ module.exports = class ChatRoom {
 
     send(client, msg) {
         this.clients.forEach(c => {
-            if (c === client) return;
+            if (c === client) {
+                c.write(`You: ${msg}`);
+                return;
+            }
             c.write(`${client.name}: ${msg}`);
         });
     }

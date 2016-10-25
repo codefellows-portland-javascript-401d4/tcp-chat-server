@@ -30,4 +30,8 @@ describe('chat room', () => {
         assert.isOk(client1.received);
         assert.isNotOk(client2.received);
     });
+
+    it('says hello with name when client connects', done => {
+        
+    });
 });
