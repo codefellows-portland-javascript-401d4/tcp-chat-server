@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "10/24/16 401 assignment",
   "main": "chat.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gnkatchmar/tcp-chat-server.git"
