@@ -31,7 +31,10 @@ describe('chat room', () => {
         assert.isNotOk(client2.received);
     });
 
-    it('says hello with name when client connects', done => {
-        
+    it('removes clients', () => {
+        chatRoom.remove(client1);
+        chatRoom.remove(client2);
+        assert.notInclude(chatRoom.currentUsers, client1.name);
+        assert.notInclude(chatRoom.currentUsers, client2.name);
     });
 });

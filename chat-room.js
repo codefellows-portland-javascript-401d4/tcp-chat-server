@@ -22,13 +22,13 @@ module.exports = class ChatRoom {
         };
         this.currentUsers.push(client.name);
         this.clients.push(client);
-        client.write(`Welcome ${client.name}! \n`);
+        // client.write(`Welcome ${client.name}! \n`);
         this.clients.forEach(c => {
             if (c === client) return;
             c.write(`${client.name} has joined! \n`)
         });
         console.log(`${client.name} has connected!`);
-        console.log(this.currentUsers);
+        console.log('Current Users:', this.currentUsers);
     }
 
     remove(client) {
@@ -45,14 +45,14 @@ module.exports = class ChatRoom {
             c.write(`${client.name} has disconnected! \n`)
         });
         console.log(`${client.name} has disconnected!`);
-        console.log(this.currentUsers);
+        console.log('Current Users:', this.currentUsers);
 
     }
 
     send(client, msg) {
         this.clients.forEach(c => {
             if (c === client) {
-                c.write(`You: ${msg}`);
+                // c.write(`You: ${msg}`);
                 return;
             }
             c.write(`${client.name}: ${msg}`);
