@@ -1,19 +1,19 @@
 const net = require('net');
-const tcpChatRm = require('./tcpChatRm');
-const chatRm = new tcpChatRm();
+const tcpChatRoom = require('./tcpChatRoom');
+const chatRoom = new tcpChatRoom();
 
-// create new tcp server for chat room
+// create tcp server for chat room
 const server = net.createServer(client => {
   client.setEncoding('utf-8');
 
-  chatRm.add(client);
+  chatRoom.add(client);
 
-  client.on('data', msg => {
-    chatRm.send(client, msg);
+  client.on('data', message => {
+    chatRoom.send(client, message);
   });
 
   client.on('close', () => {
-    chatRm.remove(client);
+    chatRoom.remove(client);
   });
 });
 
