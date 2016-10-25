@@ -1,5 +1,5 @@
 const net = require('net');
-const ChatRoom = require('./Chatroom');
+const ChatRoom = require('./lib/Chatroom');
 const chatRoom = new ChatRoom();
 
 const server = net.createServer(client => {
@@ -9,7 +9,7 @@ const server = net.createServer(client => {
 
     chatRoom.add(client);
 
-    chatRoom.whoshere();
+    //chatRoom.whoshere();
 
     client.on('data', message => {
         chatRoom.send(client, message);
@@ -22,13 +22,10 @@ const server = net.createServer(client => {
     });
 
     client.on('close', () => {
+        chatRoom.disconnectMessage(client);
         chatRoom.remove(client);
         console.log(`${client.name} has disconnected`);
     });
 });
 
-const port = 65000;
-server.listen(port, err => {
-    if (err) console.log('Error! ', err);
-    else console.log('server is listening on port ', port, err);
-});
+module.exports = server;
