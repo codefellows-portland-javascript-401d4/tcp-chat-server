@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "10/24/16 401 assignment",
   "main": "chat.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "mocha"
   },
