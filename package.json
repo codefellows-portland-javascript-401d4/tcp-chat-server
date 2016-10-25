@@ -7,7 +7,8 @@
     "pretest": "eslint ./",
     "test": "mocha Chatroom.test.js",
     "test:watch": "mocha Chatroom.test.js -w",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
