@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
-const ChatRoom = require('../ChatRoom');
+const ChatRoom = require('../lib/ChatRoom');
 
-describe('ChatRoom', () => {
+describe('ChatRoom unit tests', () => {
 
   const chatRoom = new ChatRoom();
 
@@ -30,6 +30,14 @@ describe('ChatRoom', () => {
     chatRoom.broadcast(bcast_msg);
     assert.equal(client1.received, `Broadcast: ${bcast_msg}\n`);
     assert.equal(client2.received, `Broadcast: ${bcast_msg}\n`);
+  });
+
+});
+
+describe ('ChatRoom server testing', () => {
+
+  it ('does something', () => {
+
   });
 
 });
