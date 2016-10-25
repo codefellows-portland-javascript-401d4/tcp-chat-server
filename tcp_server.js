@@ -1,5 +1,4 @@
 const net = require('net');
-// const chat = require('./chat_group');
 
 
 const ChatGroup = class ChatGroup {
@@ -21,10 +20,12 @@ const ChatGroup = class ChatGroup {
         });
     }
 
+    remove(client) {
+        const index = this.clients.indexOf(client);
+        if (index !== -1) this.clients.splice(index, 1);
+    }
 
 };
-
-
 
 const chatGroup = new ChatGroup();
 
@@ -37,6 +38,10 @@ const server = net.createServer(client => {
         chatGroup.send(client, message);
     });
 
+    client.on('close', client => {
+        console.log('A client has disconnected');
+        chatGroup.remove(client);
+    });
 
 });
 
