@@ -1,6 +1,6 @@
 const net = require('net');
 const assert = require('chai').assert;
-const server = require('../lib/tcp_server');
+const server = require('../index');
 // const ChatGroup = require('../lib/chatGroup');
 const port = 3000;
 
@@ -25,7 +25,7 @@ describe('base functionality', () => {
 
     it('server welcomes client when they connect', done => {
         client.once('data', data => {
-            console.log('we are inside of client.once');
+            console.log('server message to client:', data.toString());
             assert.equal(data, 'welcome new client');
             done();
         });
