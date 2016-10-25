@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const ChatRoom = require('../chatRoom');
+const ChatRoom = require('../lib/chatRoom');
 
 describe('chat room', () => {
 
