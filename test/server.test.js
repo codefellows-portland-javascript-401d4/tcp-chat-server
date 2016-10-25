@@ -29,18 +29,6 @@ describe('my tcp server', () => {
         }
       });
     });
-
-    //when the client enters the chat, we want them to receive a hello
-    it('says entering message to client when client enters chat', done => {
-      client.once('data', data => { //data the client received which should be hello
-        assert.equal(data, 'guest 1 entered the room\n');
-        done();
-      });
-    });
-    after(done => {
-      client.end(done); //when the tests are done, the client leaves the room
-    });
-    let guest2 = null;
     before(done => {
       guest2 = net.connect({port:port}, err => {
         if(err) done(err);
@@ -50,6 +38,15 @@ describe('my tcp server', () => {
         }
       });
     });
+
+    //when the client enters the chat, we want them to receive a hello
+    it('says entering message to client when client enters chat', done => {
+      client.once('data', data => { //data the client received which should be hello
+        assert.equal(data, 'guest 1 entered the room\n');
+        done();
+      });
+    });
+    let guest2 = null;
     //test to see if client message is sent back to them
     it('guest2 sees the entering room message', done => {
       guest2.once('data', data => { //when the client received data which should be the message
@@ -65,6 +62,14 @@ describe('my tcp server', () => {
         done();
       });
     });
+
+    after(done => {
+      client.end(done); //when the tests are done, the client leaves the room
+    });
+    after(done => {
+      guest2.end(done);
+    });
+
   });
   after(done => {
     server.close(done);
