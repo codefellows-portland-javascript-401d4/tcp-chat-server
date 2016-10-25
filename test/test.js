@@ -1,19 +1,16 @@
-const ChatRoom = require('../lib/ChatRoom');
+const net = require('net');
 const assert = require('chai').assert;
+const server = require('../lib/tcpServer');
 
-const chatRoom = new ChatRoom();
+describe('tcp server functions', () => {
 
-//mock client construction to test functionality
-class MockClient {
-  write(message) {
-    this.received = message;
-  }
-}
-const client1 = new MockClient();
-const client2 = new MockClient();
-const client3 = new MockClient();
+  const port = 12121;
 
-describe('server functions', () => {
+  before(done => {
+    server.listen(port, done);
+  });
+
+  it('welcomes clients to room', () =>)
   it('adds clients', () => {
     assert.equal(chatRoom.clients.length, 0);
     chatRoom.add(client1);
