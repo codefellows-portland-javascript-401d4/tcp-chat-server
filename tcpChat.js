@@ -2,7 +2,7 @@ const net = require('net');
 const ChatRoom = require('./chatRoom');
 const chatRoom = new ChatRoom();
 
-const server = net.createServer(client => {
+module.exports = net.createServer(client => {
   client.setEncoding('utf-8');
 
   chatRoom.add(client);
@@ -23,8 +23,9 @@ const server = net.createServer(client => {
 
 });
 
-const port = 65000;
-server.listen(port, err => {
-  if (err) console.log('error!', err);
-  else console.log('server listening on port', port);
-});
+// const port = 65000;
+// server.listen(port, err => {
+//   if (err) console.log('error!', err);
+//   else console.log('server listening on port', port);
+// });
+
