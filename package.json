@@ -11,14 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/risafletcher/file-store.git"
+    "url": "https://github.com/viper86/tcp-chat-server"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/risafletcher/file-store/issues"
-  },
-  "homepage": "https://github.com/risafletcher/file-store#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.8.1",
