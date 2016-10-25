@@ -1,6 +1,8 @@
+'use strict';
+
 const net = require('net')
 const dogs = require('dog-ascii-faces');
-const chatRoom = require('./lib/DogChat');
+const DogChat = require('./lib/DogChat');
 const dogChat = new DogChat();
 
 const server = net.createServer(client => {
@@ -20,6 +22,8 @@ const server = net.createServer(client => {
 
 const port = 65000;
 server.listen(port, err => {
-    if(err) console.log('ERROR', err);
-    else console.log('server is listening on port', port);
+    if(err) console.log(`ERROR: ${err}`);
+    else console.log(`server is listening on port: ${port}`);
 });
+
+module.exports = server;
