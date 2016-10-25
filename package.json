@@ -4,7 +4,7 @@
   "description": "10-24-lab-1",
   "main": "index.js",
   "scripts": {
-    "test": "chat-test.js",
+    "test": "test/chat.test.js",
     "lint": "eslint"
   },
   "repository": {
