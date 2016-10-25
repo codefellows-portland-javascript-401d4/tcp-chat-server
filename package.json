@@ -21,6 +21,7 @@
   "homepage": "https://github.com/gnkatchmar/tcp-chat-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "sillyname": "^0.1.0"
   }
 }

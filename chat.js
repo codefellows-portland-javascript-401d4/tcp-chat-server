@@ -11,17 +11,17 @@ const server = net.createServer(client => {
   console.log(`${nickname} (${name}) has connected`);
 
   clients.push(client);
-  console.log(clients);
+  // console.log(clients);
 
   client.on("data", message => {
-    //first of Windows/Telnet workarounds as it is set to single character input
+    //first of three lines of Windows/Telnet workarounds as it is set to single character input
     client.message += message;
     clients.forEach(c => {
       if(c === client) return; //return to .forEach "loop"
-      //second Windows/Telnet workaround
+      //second workaround
       if (message.indexOf("\r\n") !== -1) {
         c.write(nickname + ": " + client.message);
-      //third Windows/Telnet workaround
+      //third workaround
         client.message = "";
       }
     });
