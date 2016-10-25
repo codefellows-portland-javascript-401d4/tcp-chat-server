@@ -11,6 +11,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - none
 
-## 0.1.0 - 20yy-mm-dd
+## 0.1.0 - 2016-10-24
 ### Initial preproduction release
-- Initial release as...
+- Initial release

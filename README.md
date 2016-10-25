@@ -6,15 +6,11 @@ This implements a ChatRoom class and simple server that allow multiple clients t
 
 ## Code Example
 
-```
-node tcp-chat-server.js <port>
-```
+`node tcp-chat-server.js <port>`
 
 If the port is not specified, it will use 65000. Then use telnet to connect to the chat room.
 
-```
-telnet localhost <port>
-```
+`telnet localhost <port>`
 
 ## Motivation
 
@@ -24,31 +20,31 @@ This was written as a lab assignment for Code Fellows 401 class.
 
 ### Constructor
 
-```const chatRoom = new ChatRoom();```
+`const chatRoom = new ChatRoom();`
 
 Construct a new ChatRoom.
 
 ### ChatRoom.addClient
 
-```chatRoom.addClient(client_obj);```
+`chatRoom.addClient(client_obj);`
 
 Add a new client object to the chat and informs everyone.
 
 ### ChatRoom.send
 
-```chatRoom.send(client_obj, msg);```
+`chatRoom.send(client_obj, msg);`
 
 Sends a message to all clients except the sender.
 
 ### ChatRoom.broadcast
 
-```chatRoom.broadcast(msg);```
+`chatRoom.broadcast(msg);`
 
 Broadcasts a message to all clients (used for chat room management, e.g. to inform of client name changes or other global events).
 
 ### ChatRoom.removeClient
 
-```chatRoom.removeClient(client_obj);```
+`chatRoom.removeClient(client_obj);`
 
 Removes the specified client from the client list and informs the remainer chatters.
 
