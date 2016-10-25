@@ -7,6 +7,7 @@ const server = net.createServer(client => {
   client.setEncoding('utf-8');
   chatRoom.addClient(client);
   console.log(`${client.name} joined the chat...`);
+  chatRoom.broadcast(`${client.name} joined the chat...`);
   
   client.on('data', message => {
     let re = /\/nick\s+/;
@@ -24,12 +25,14 @@ const server = net.createServer(client => {
   });
 
   client.on('close', () => {
-    console.log(`${client.name} left the chat...`);
+    let name = client.name;
     chatRoom.removeClient(client);
+    console.log(`${name} left the chat...`);
+    chatRoom.broadcast(`${name} left the chat...`);
   });
 });
 
-const port = 65000;
+const port = process.argv[2] || 65000;
 server.listen(port, err => {
   console.log('Server listening on port', port, err);
 });

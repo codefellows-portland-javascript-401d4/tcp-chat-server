@@ -1,55 +1,60 @@
-# Bitmap transformer
+# TCP ChatRoom
 
 ## Description
 
-TODO: Add program description.
+This implements a ChatRoom class and simple server that allow multiple clients to connect and chat using telnet.
 
 ## Code Example
 
 ```
-const Bitmap = require('./lib/bitmap-xfmr');
-let myBmp = new Bitmap('example-bitmap.bmp', (err) => { console.log(err || 'Done!'); });
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/example-redder3.bmp', (err) => { console.log(err || 'Done writing!'); });
+node tcp-chat-server.js <port>
+```
+
+If the port is not specified, it will use 65000. Then use telnet to connect to the chat room.
+
+```
+telnet localhost <port>
 ```
 
 ## Motivation
 
-This was written as a lab assignment for Code Fellows 401 class. Currently it supports paletted and non-paletted bitmaps in the standard Windows NT/3.1+ BITMAPINFOHEADER format.
+This was written as a lab assignment for Code Fellows 401 class.
 
 ## API Reference
 
 ### Constructor
 
-```myBmp = new Bitmap(filename, [callback(err, data)]);```
+```const chatRoom = new ChatRoom();```
 
-Construct a new Bitmap from the data in filename.
+Construct a new ChatRoom.
 
-### Transformer
+### ChatRoom.addClient
 
-```myBmp.transform(label, [arguments])```
+```chatRoom.addClient(client_obj);```
 
-Transform the bitmap where label is one of the available transforms:
- - 'redder' makes the image redder by a specified factor
- - 'bluer' makes the image bluer...
- - 'greener' makes the image greener...
- - 'invert' inverts the colors in the image (i.e. new_color = 255 - old_color)
- - 'grayscale' makes the image grayer by a specified factor
+Add a new client object to the chat and informs everyone.
 
-Example:
+### ChatRoom.send
 
-```
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/redder3.bmp', (err) => {
-  console.log(err || 'Done!');
-});
-```
+```chatRoom.send(client_obj, msg);```
 
-### Save to file
+Sends a message to all clients except the sender.
 
-```myBmp.writeBufferToFile(filename, [callback(err, data)])```
+### ChatRoom.broadcast
 
-Write the Bitmap object's buffer out to a .bmp file.
+```chatRoom.broadcast(msg);```
+
+Broadcasts a message to all clients (used for chat room management, e.g. to inform of client name changes or other global events).
+
+### ChatRoom.removeClient
+
+```chatRoom.removeClient(client_obj);```
+
+Removes the specified client from the client list and informs the remainer chatters.
+
+### Nicknames
+
+Although not technically part of the API, clients can change their assigned name by sending a message as follows: `/nick <nickname>`. This will change the client's screen name and inform all the other users of the change.
 
 ## Tests
 
