@@ -1,7 +1,7 @@
 'use strict';
 
-var assert = require('chai').assert;
-var ChatRoom = require('../chat-room');
+const assert = require('chai').assert;
+const ChatRoom = require('../chat-room');
 
 describe('chat room', () => {
 
