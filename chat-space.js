@@ -1,12 +1,11 @@
 module.exports = class ChatSpace {
     constructor() {
-        // seed?
-        this.seed = 1;
+        this.count = 1;
         this.clients = [];
     }
 
     add(client) {
-        const username = 'client' + (this.seed++);
+        const username = 'client' + (this.count++);
         this.clients.push(client);
     }
 

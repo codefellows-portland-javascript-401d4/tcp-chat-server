@@ -3,6 +3,9 @@ const chat = require('./chat-space');
 const chatSpace = new ChatSpace();
 
 const server = net.createServer(client => {
+    const username = 'client' + (id++);
+    console.log('client', username, 'connected');
+
     client.setEncoding('utf-8');
 
     chatSpace.add(client);
@@ -12,6 +15,7 @@ const server = net.createServer(client => {
     });
 
     client.on('close', () => {
+        console.log(`client ${username} has disconnected`);
         chatSpace.remove(client);
     });
 });
