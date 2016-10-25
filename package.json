@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
-  },
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "lint": "eslint **/*.js",
+    "watch": "mocha -w"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michellesri/tcp-chat-server.git"
