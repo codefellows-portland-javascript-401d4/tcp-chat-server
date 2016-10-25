@@ -7,7 +7,6 @@
     "test": "test"
   },
   "dependencies": {
-    "node": "^6.8.1",
     "nodemon": "^1.11.0"
   },
   "devDependencies": {
