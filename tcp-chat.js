@@ -1,5 +1,6 @@
 const net = require('net')
-const chatRoom = require('./dog-chat-module');
+const dogs = require('dog-ascii-faces');
+const chatRoom = require('../DogChat');
 const dogChat = new DogChat();
 
 const server = net.createServer(client => {
@@ -9,6 +10,7 @@ const server = net.createServer(client => {
 
     client.on('data', message => {
         dogChat.send(client, message);
+        console.log(dogs());
     });
 
     client.on('close', () => {

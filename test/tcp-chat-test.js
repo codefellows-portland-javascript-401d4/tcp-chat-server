@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const chatRoom = require('./dog-chat-module');
+const chatRoom = require('../DogChat');
 
 describe('chat room', () => {
     const dogChat = new DogChat();
