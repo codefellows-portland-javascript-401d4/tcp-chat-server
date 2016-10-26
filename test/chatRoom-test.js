@@ -3,10 +3,12 @@ const ChatRoom = require('../chatRoom');
 const server = require('../tcpChat');
 const net = require('net');
 
+
 describe('E2E test for a tcp chat client', () => {
   const port = 65000;
   let client1 = null;
   let client2 = null;
+  let client3 = null;
 
 
   before(done => {
@@ -29,12 +31,59 @@ describe('E2E test for a tcp chat client', () => {
       assert.equal(data.split('name\n')[0] + 'name\n', 'Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
       done();
     });
-    // client2.once('data', data => {
-    //   assert.equal(data.substring(data.indexOf(': ') + 2, 'has connected'));
-    // });
-    // makeClient(client2);
   });
 
+  it('Should display <client> has connected to all clients', (done) => {
+    client1.once('data', data => {
+      assert.equal(data.substring(data.indexOf(' ') + 1), 'has connected\n');
+      done();
+    });
+    client2 = net.connect({port: port}, err => {
+      if (err) done(err);
+      else {
+        client2.setEncoding('utf8');
+      }
+    });
+
+  });
+
+  it('Should display messages from one client to the others', done => {
+  //   client1.write('hello guys');
+
+  //   client2.on('data', data => {
+  //     console.log(data);
+  //   });
+  //   done();
+  // });
+
+    client3 = net.connect({port: port}), err => {
+      if (err) done(err);
+      else {
+        client3.setEncoding('utf8');
+
+      }
+    };
+   
+    client2.on('data', data => {
+      if (data.split(' ')[0] !== 'Use' && data.substring(data.length -9) !== 'connected') {
+        console.log('client2 data', data);
+        assert.equal(data.substring(data.length - 10), 'hello guys');
+        
+
+      }
+    });
+    client3.on('data', data => {
+      if (data.split(' ')[0] !== 'Use' && data.substring(data.length -9) !== 'connected') {
+        console.log('client3 data', data);
+        assert.equal(data.substring(data.length - 10), 'hello guys');
+        done();
+      }
+    });
+    client1.on('data', data => {
+      assert.equal(data.substring(data.indexOf(' ') + 1), 'has connected\n');
+    });
+    client1.write('hello guys');
+  });
 });
 
 

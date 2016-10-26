@@ -14,8 +14,8 @@ module.exports = class ChatRoom {
   add(client) {
     client.nick = this.nick();
     this.clients.push(client);
+    client.write('Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
     this.clients.forEach(c => {
-      client.write('Use these commands:\n/newName <name> will change name to one of your choosing \n/newRandom will generate a random name\n');
       c.write(`${client.nick} has connected` + '\n');
     });
     console.log(`${client.nick} has connected`);
