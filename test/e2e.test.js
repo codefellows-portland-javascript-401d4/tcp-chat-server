@@ -1,14 +1,11 @@
 const net = require('net');
 const assert = require('chai').assert;
 const server = require('../lib/server');
-// const ChatRoom = require('../lib/chatRoom');
-// const chatRoom = serverObj.chatRoom;
 
 describe('chat server', () => {
   const port = 8080;
   let client1 = null;
   let client2 = null;
-  // const chatRoom = new ChatRoom();
 
   before(done => {
     server.listen(port, err => {
