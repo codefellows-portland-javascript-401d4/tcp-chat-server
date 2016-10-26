@@ -60,6 +60,12 @@ describe('E2E test for a tcp chat client', () => {
     client1.write(message);
   });
 
+  after(done => {
+    client1.end();
+    client2.end();
+    server.close(done);
+  });
+
 });
 
 
