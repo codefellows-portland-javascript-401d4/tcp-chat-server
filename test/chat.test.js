@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 const net = require('net');
-const server = require('../index')
+const server = require('../index');
 
 describe('chat server', () => {
 
