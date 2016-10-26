@@ -8,7 +8,8 @@
     "test": "npm run test:run",
     "test:run": "mocha",
     "test:watch": "npm run test:run -- -w",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "npm run test && node index.js"
   },
   "repository": {
     "type": "git",
