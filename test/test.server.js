@@ -3,7 +3,6 @@ const net = require('net');
 const server = require('../server').server;
 const chat = require('../server').chat;
 
-/* TO USE THIS TEST, UNCOMMENT SERVER LINE 10 */
 
   describe('chat-module', () => {
 
