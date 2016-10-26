@@ -44,16 +44,16 @@ describe('E2E test for a tcp chat client', () => {
   });
 
   it('Should display messages from one client to the others', done => {
-    client2.on('data', data => {
-      if (data.substring(data.length - 10) === message) {
-        assert.equal(data.substring(data.length - 10), message);
-        console.log(data.substring(data.length - 10));
-        done();
-      }
-    });
     client1.on('data', data => {
       if (data.substring(data.length - 10) === message) {
         assert.isNotOk(data);
+        done();
+      }
+    });
+    client2.on('data', data => {
+      if (data.substring(data.length - 10) === message) {
+        assert.equal(data.substring(data.length - 10), message);
+        console.log('client2 gets', data.substring(data.length - 10));
         done();
       }
     });
