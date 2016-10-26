@@ -7,7 +7,8 @@ module.exports = class ChatRoom {
     add(client) {
         client.name = 'client ' + (this.seed++);
         this.clients.push(client);
-        client.write('Welcome to the chatroom, ' + client.name + '.  If you do not like your username you can change it to a nickname with the following commands: \n "/lady" = change to a female nickname. \n "/gent" = change to a male nickname.  \n "/whocares" = change to any nickname. \n\n');
+        client.greeting = 'Welcome to the chatroom, ' + client.name + '.  If you do not like your username you can change it to a nickname with the following commands: \n "/lady" = change to a female nickname. \n "/gent" = change to a male nickname.  \n "/whocares" = change to any nickname. \n\n';
+        client.write(client.greeting);
     }
 
     send(sender, message) {
