@@ -20,7 +20,7 @@ describe('chat room', () => {
         dogChat.add(dogClient1);
         assert.equal(dogChat.dogClients.length, 1);
         assert.equal(dogChat.dogClients[0], dogClient1);
-        assert.equal(dogClient1.username, 'dog 1');
+        assert.equal(dogClient1.name, 'dog 1');
     });
 
     it('broadcasts sent messages to other client', () => {
