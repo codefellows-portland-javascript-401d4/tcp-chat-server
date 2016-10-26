@@ -25,6 +25,17 @@ describe('E2E test for a tcp chat client', () => {
     });
   });
 
+  before(done => {
+    client3 = net.connect({port: port}, err => {
+      if (err) done(err);
+      else {
+        client3.setEncoding('utf8');
+        done();
+      }
+    });
+  });
+
+
 
   it('Should display instruction to new client', (done) => {
     client1.once('data', data => {
@@ -56,16 +67,10 @@ describe('E2E test for a tcp chat client', () => {
   //   done();
   // });
 
-    client3 = net.connect({port: port}), err => {
-      if (err) done(err);
-      else {
-        client3.setEncoding('utf8');
 
-      }
-    };
    
     client2.on('data', data => {
-      if (data.split(' ')[0] !== 'Use' && data.substring(data.length -9) !== 'connected') {
+      if (data.split(' ')[0] !== 'Use' && data.substring(data.length - 11) !== 'connected\n') {
         console.log('client2 data', data);
         assert.equal(data.substring(data.length - 10), 'hello guys');
         
@@ -73,9 +78,9 @@ describe('E2E test for a tcp chat client', () => {
       }
     });
     client3.on('data', data => {
-      if (data.split(' ')[0] !== 'Use' && data.substring(data.length -9) !== 'connected') {
+      if (data.split(' ')[0] !== 'Use' && data.substring(data.length - 11) !== 'connected\n') {
         console.log('client3 data', data);
-        assert.equal(data.substring(data.length - 10), 'hello guys');
+        assert.equal(data.substring(data.length - 10), 'hello');
         done();
       }
     });
