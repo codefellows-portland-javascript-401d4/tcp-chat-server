@@ -44,7 +44,6 @@ describe('chat program', function(done){
         });
 
         it('creates multiple clients', function(done){
-            console.log('clients length is ', chatRoom.clients.length);
             assert(chatRoom.clients.length === 2);
             done();
         });

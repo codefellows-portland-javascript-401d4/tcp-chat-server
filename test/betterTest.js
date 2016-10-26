@@ -46,7 +46,6 @@ describe('chat program', function(done){
 
         it('sends a greeting to clients', function(done){
             client.once('data', data => {
-                console.log('second listener received', data.toString());
                 client2.write(message);
                 assert('Welcome to the chatroom, client 1.  If you do not like your username you can change it to a nickname with the following commands: \n "/lady" = change to a female nickname. \n "/gent" = change to a male nickname.  \n "/whocares" = change to any nickname. \n\n' === data);
                 done();
@@ -57,7 +56,6 @@ describe('chat program', function(done){
             client.once('data', data => {
                 const arr = data.split(' ');
                 const words = arr[2].toString();
-                console.log('second listener received', data.toString());
                 assert.equal(words, message);
                 done();
             });
