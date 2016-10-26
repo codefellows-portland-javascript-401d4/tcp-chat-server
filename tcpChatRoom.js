@@ -10,7 +10,7 @@ module.exports = class tcpChatRoom {
   }
   add(client) {
     client.id = 'chatter ' + (this.seed++);
-    client.write(`${client.id}`);
+    client.write("welcome to the discussion, " + `${client.id}`);
     this.clients.push(client);
   }
   send(sender, message) {
@@ -20,7 +20,7 @@ module.exports = class tcpChatRoom {
       if(client === sender) return;
       // otherwise, send message to other clients in chat room
       // randomize client ID before sending message
-      var randomID = Math.floor((Math.random()*10)+1);
+      var randomID = Math.floor((Math.random()*10));
       sender.id = 'chatter ' + randomID;
       client.write(`${sender.id}: ${message}`);
     });
