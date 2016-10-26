@@ -7,6 +7,7 @@ const chatRoom = new ChatRoom();
 const port = 65000;
 var client = null;
 var client2 = null;
+const message = 'Howdy';
 
 describe('chat program', function(done){     
     before(done => {
@@ -43,26 +44,28 @@ describe('chat program', function(done){
             done();
         });
 
-        it('allows clients to message on another', function(done){
-            client2.write('Test hello');
-            client.on('data', function(data){
-                console.log('data are ', data);
-                assert('Test hello' === data);
-                chatRoom.remove(client); 
-                chatRoom.remove(client2);
-                console.log('semifinal clients are ', chatRoom.clients.length);
+        it('sends a greeting to clients', function(done){
+            client.once('data', data => {
+                console.log('second listener received', data.toString());
+                client2.write(message);
+                assert('Welcome to the chatroom, client 1.  If you do not like your username you can change it to a nickname with the following commands: \n "/lady" = change to a female nickname. \n "/gent" = change to a male nickname.  \n "/whocares" = change to any nickname. \n\n' === data);
                 done();
             });
-            client2.write('Test hello');
         });
     
-        // it('removes clients', function(done){
-        //     console.log('final clients are ', chatRoom.clients.length);
-        //     assert(0 === chatRoom.clients.length);
-        //     done();
-        // });
+        it('allows clients to message on another', function(done){
+            client.once('data', data => {
+                const arr = data.split(' ');
+                const words = arr[2].toString();
+                console.log('second listener received', data.toString());
+                assert.equal(words, message);
+                done();
+            });
+            client2.write(message);
+            done;
+        });
 
-    
+
         // after(done => {
         //     client.once('close', done);
         //     client.end(done);
@@ -73,5 +76,4 @@ describe('chat program', function(done){
         // });
 
     });
-     done;
 });
