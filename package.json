@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./test/test.js"
+    "test": "mocha",
+    "lint": "eslint **/*.js",
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
