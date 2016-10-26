@@ -1,0 +1,33 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "mocha test",
+    "lint": "eslint .",
+    "watch": "mocha test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MugsyCarter/tcp-chat-server.git"
+  },
+  "author": "Mugsy Carter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MugsyCarter/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/MugsyCarter/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "nicknames": "^1.0.2"
+  }
+}
