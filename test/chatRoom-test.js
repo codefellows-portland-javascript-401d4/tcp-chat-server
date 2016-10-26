@@ -47,12 +47,14 @@ describe('E2E test for a tcp chat client', () => {
     client2.on('data', data => {
       if (data.substring(data.length - 10) === message) {
         assert.equal(data.substring(data.length - 10), message);
+        console.log(data.substring(data.length - 10));
         done();
       }
     });
     client1.on('data', data => {
       if (data.substring(data.length - 10) === message) {
         assert.isNotOk(data);
+        done();
       }
     });
     client1.write(message);
