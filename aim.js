@@ -65,8 +65,7 @@ module.exports = class AIM {
         let leavingUser = user.name;
         if (userIndex !== -1) this.users.splice(userIndex, 1);
         this.users.forEach((user) => {
-            if(user)
-                user.write(`${leavingUser} has logged off.`);
+            if(user) user.write(`${leavingUser} has logged off.`);
         });
         console.log(`User ${user.name} has disconnected.`);
     }

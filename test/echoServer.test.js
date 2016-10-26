@@ -49,28 +49,33 @@ describe('echo server', () => {
             });
         });
 
-        it('user sees message that was entered', done => {
+        it('user sees message that was  by another user', done => {
             const message = 'This was typed.';
 
             user.on('data', data => {
-                if ( data.substr(-15) === message) {
-                    console.log('Second listener received: ', data);
+                if (data.substr(-15) === message) {
+                    console.log('Third listener received: ', data);
                     assert.include(data, message);
                     done();
                 }
-                
             });
-            
             user2.write(message);
-            
+        });
+
+        it('tells user that another user has logged off', done => {
+            user.on('data', data => {
+                const logoff = 'has logged off.';
+                if (data.substr(-15) === logoff) {
+                    console.log('Fourth listener received: ', data);
+                    assert.include(data, logoff);
+                    done();
+                }
+            });
+            user2.end();
         });
 
         after(done => {
             user.end(done);
-        });
-
-        after(done => {
-            user2.end(done);
         });
     });
 });
