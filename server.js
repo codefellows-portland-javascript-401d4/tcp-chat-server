@@ -1,5 +1,5 @@
 const net = require('net');
-const ChatRoom = require('./ChatRoom');
+const ChatRoom = require('./chatRoom');
 var nicknames = require('nicknames');
 
 const chatRoom = new ChatRoom();
