@@ -1,47 +1,69 @@
 const chai = require('chai');
 const assert = chai.assert;
-const Chat = require('../chat');
+const net = require('net');
+const server = require('../index')
 
-describe('Chat room', () => {
+describe('chat server', () => {
 
-  const chatRoom = new Chat();
+  const port = 65000;  
 
-  class testClient {
-    write(message) {
-      this.received = message;
-    }
-  }
-
-  const chatter1 = new testClient();
-  const chatter2 = new testClient();
-  const chatter3 = new testClient();
-
-  it('adds clients', () => {
-    assert.equal(chatRoom.clients.length, 0);
-    chatRoom.add(chatter1);
-    assert.equal(chatRoom.clients.length, 1);
-    assert.equal(chatRoom.clients[0], chatter1);
+  before(done => {
+    server.listen(port, done);
   });
 
-  it('assigns a unique random number for each client nickname', () => {
-    chatRoom.add(chatter2);
-    assert.equal(chatter2.name, 'chatterbox_' + chatRoom.seed);
-    console.log('The unique name of chatter2 is', chatter2.name);
-    chatRoom.add(chatter3);
-    assert.equal(chatter3.name, 'chatterbox_' + chatRoom.seed);
-    console.log('The unique name of chatter3 is', chatter3.name);
+  describe('test client functionality', () => {
+
+    let client = null;
+
+    before(done => {
+      client = net.connect({port: port}, err => {
+        if (err) done(err);
+        else {
+          client.setEncoding('utf-8');
+          done();
+          }
+      });
+    });
+
+    let client1 = null;
+    
+    before (done => {
+      client1 = net.connect({port: port}, err => {
+        if (err) done(err);
+        else {
+          client1.setEncoding('utf-8');
+          done();
+          }
+      });
+    });
+
+      it('greets new client', done => {
+        client.once('data', data => {
+          console.log('first chatter received', data.toString());
+          assert.equal(data, 'Velcome to ze chat!\n');
+          done();
+        });
+      });
+
+      it('client message echoed back', done => {
+
+        const message = 'hi there';
+
+        client.once('data', data => {
+          let stringData = data.toString();
+          console.log('second chatter received', stringData);
+          let trimmedName = stringData.split('_'); 
+          let digit = trimmedName[1].split(' ');
+          let uniqueName = trimmedName[0] + '_' + digit[0] + ' ';
+          assert.equal(data, uniqueName + message);
+          done();
+        });
+
+        client1.write(message);
+      });
+
+      after(done => {
+        client.end(done);
+      });
   });
-
-  it('sends messages to other clients', () => {
-    chatRoom.send(chatter2, 'wull hullo thurr');
-    assert.equal(chatter1.received, chatter2.name + ': wull hullo thurr');
-    assert.isNotOk(chatter2.received);
-  });
-
-  it('renames when requested with /nick', () => {
-    chatRoom.send(chatter3, '/nick tomTimmel');
-    assert.equal(chatter3.name, 'tomTimmel');
-  });
-
-
 });

@@ -4,24 +4,26 @@ module.exports = class ChatRoom {
   }
 
   add(client) {
+    client.write('Velcome to ze chat!\n');
     this.seed = Math.floor(Math.random() * 5000) + 1;
-    client.name = 'chatterbox_' + (this.seed); 
     this.clients.push(client);
+    client.name = 'chatterbox_' + (this.seed); 
   }
 
   send(sender, message) {
-    this.clients.forEach(c => {
+    let output = `${sender.name}: ${message}`;
       // Allow user to change name by starting message with /nick
       if (message.startsWith('/nick ')) {
         // remove linefeed or return chars from end of string
-        message = message.replace(/(\r\n|\n|\r)/,'');
+        message = message.trim();
         let newName = message.slice(6, message.length);
-        c.write(sender.name + ' chose a new name: ' + newName + '\n');
+        output = sender.name + ' chose a new name: ' + newName + '\n';
         sender.name = newName;
-      } else {
-        if(c === sender) return;
-        c.write(`${sender.name}: ${message}`);
+        sender.write(output);
       }
+      this.clients.forEach(c => {
+        if(c === sender) return;
+        c.write(output);
     });
   }
 
