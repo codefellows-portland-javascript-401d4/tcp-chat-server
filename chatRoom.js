@@ -42,8 +42,6 @@ module.exports = class ChatRoom {
     this.clients.forEach(c => {
       c.write(`${oldNick} has changed their name to ${client.nick}` + '\n');
     });
-   
-    
   }
 
   changeNickRandom(client, message) {
@@ -52,8 +50,6 @@ module.exports = class ChatRoom {
     this.clients.forEach(c => {
       c.write(`${oldNick} has changed their name to ${client.nick}` + '\n');
     });
-    
   }
-    
-
+  
 };
