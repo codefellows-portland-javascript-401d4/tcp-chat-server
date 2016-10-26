@@ -1,0 +1,32 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "A Chat server that uses tcp to chat between command terminals",
+  "main": "chat-server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test:run",
+    "test:run": "mocha",
+    "test:watch": "npm run test:run -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpats67/tcp-chat-server.git"
+  },
+  "author": "@hpats67",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hpats67/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/hpats67/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
