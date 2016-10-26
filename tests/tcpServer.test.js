@@ -4,7 +4,7 @@ const assert = chai.assert;
 chai.use(chaiHttp);
 const fs = require('fs');
 const ChatRoom = require('../lib/Chatroom');
-const server = require('../server');
+const server = require('../lib/tcpServer');
 const net = require('net');
 
 describe('Tests run on TCP chat server to check E2E performance', done => {

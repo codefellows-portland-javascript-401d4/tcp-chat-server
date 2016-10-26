@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 const fs = require('fs');
 const ChatRoom = require('../lib/Chatroom'); 
-const server = require('../server');
+const server = require('../lib/tcpServer');
 
 class mockUser {
     write(text) {
