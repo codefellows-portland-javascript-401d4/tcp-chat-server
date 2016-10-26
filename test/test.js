@@ -66,19 +66,7 @@ describe('chat program', function(done){
             console.log('farted');
             done();
         });
-
-        it('allows clients to message on another', function(done){
-            client.on('data', function(data){
-                console.log('data are ', data);
-                assert('Test hello' === data);
-                chatRoom.remove(client); 
-                chatRoom.remove(client2);
-                console.log('semifinal clients are ', chatRoom.clients.length);
-                done();
-            });
-            client2.write('Test hello');
-        });
-    
+ 
         // it('removes clients', function(done){
         //     console.log('final clients are ', chatRoom.clients.length);
         //     assert(0 === chatRoom.clients.length);
@@ -96,5 +84,4 @@ describe('chat program', function(done){
         // });
 
     });
-     done;
 });
