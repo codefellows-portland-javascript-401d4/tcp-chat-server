@@ -1,0 +1,21 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "10/24/16 401 assignment",
+  "main": "chat.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnkatchmar/tcp-chat-server.git"
+  },
+  "author": "Greg Katchmar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gnkatchmar/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/gnkatchmar/tcp-chat-server#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sillyname": "^0.1.0"
+  }
+}
