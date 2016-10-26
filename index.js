@@ -1,3 +1,8 @@
-const read = require('./lib/read.js');
+const tcpServer = require('./lib/tcpServer.js');
 
-read.readWrite();
+const port = 12121;
+tcpServer.listen(port, err => {
+  if (err) console.log('ERROR!', err);
+  console.log('server listening on port', port);
+});
+
