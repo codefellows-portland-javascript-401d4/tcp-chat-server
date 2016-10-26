@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "return: 0"
+    "test": "./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "chai": "^3.5.0",
     "cowsay": "^1.1.8",
     "eslint": "^3.8.1",
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0"
   }
 }
