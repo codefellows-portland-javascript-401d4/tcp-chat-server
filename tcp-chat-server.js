@@ -9,6 +9,7 @@ const server = net.createServer(client => {
     client.setEncoding('utf-8');
 
     dogChat.add(client);
+    client.write('Welcome to DogChat', client);
 
     client.on('data', message => {
         dogChat.send(client, message);
