@@ -1,10 +1,12 @@
+const net = require('net');
 const assert = require('chai').assert;
-const ChatRoom = require('../ChatRoom');
+const server = require('../lib/chat-server');
+const ChatRoom = require('../lib/ChatRoom');
 
-describe('Chat Room', () => {
+describe('Chat Room Handlers', () => {
   
   //create a new chatroom
-  const chatRoom = new ChatRoom();
+  const mockChatRoom = new ChatRoom();
   
   //constructor for making fake clients for testing
   class MockClient {
@@ -14,32 +16,34 @@ describe('Chat Room', () => {
   }
   
   //create mock visitor
-  const client1 = new MockClient();
+  const mockClient1 = new MockClient();
   
   //create a second mock visitor
-  const client2 = new MockClient();
+  const mockClient2 = new MockClient();
 
   it('adds new clients to array', () => {
     //check to make sure it starts out empty
-    assert.equal(chatRoom.clients.length, 0);
+    assert.equal(mockChatRoom.clients.length, 0);
     //add first client
-    chatRoom.add(client1);
+    mockChatRoom.add(mockClient1);
     //check that a client has been added to the array
-    assert.equal(chatRoom.clients.length, 1);
+    assert.equal(mockChatRoom.clients.length, 1);
     //check that the array contains our first client
-    assert.equal(chatRoom.clients[0], client1);
+    assert.equal(mockChatRoom.clients[0], mockClient1);
     //check that the name of the client matches
-    assert.equal(client1.name, 'visitor 1');
+    assert.equal(mockClient1.name, 'visitor 1');
   });
 
   it('sends messages to other visitors', () => {
     //add second client to array
-    chatRoom.add(client2);
+    mockChatRoom.add(mockClient2);
     //send hardcoded message
-    chatRoom.send(client2, 'hello');
+    mockChatRoom.send(mockClient2, 'hello');
     //check that client1 received the message
-    assert.equal(client1.received, 'visitor 2: hello');
+    assert.equal(mockClient1.received, 'visitor 2: hello');
     //check that sender did not recieve the message
-    assert.isNotOk(client2.received);
+    assert.isNotOk(mockClient2.received);
   });
 });
+
+
