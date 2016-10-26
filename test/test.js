@@ -62,11 +62,9 @@ describe('chat program', function(done){
 
         it('changes client names', function(done){
             assert(client.name === 'Steve');
-            chatRoom.send(client, 'fart');
-            console.log('farted');
             done();
         });
- 
+        done;
         // it('removes clients', function(done){
         //     console.log('final clients are ', chatRoom.clients.length);
         //     assert(0 === chatRoom.clients.length);
@@ -82,6 +80,6 @@ describe('chat program', function(done){
         // after(done => {
         //     server.close(done);
         // });
-
+  
     });
 });
