@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {},
-    "devDependencies": {
+  "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.8.1",
     "mocha": "^3.1.2"
@@ -26,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/caraldi/tcp-chat-server/issues"
   },
-  "homepage": "https://github.com/caraldi/tcp-chat-server#readme",
+  "homepage": "https://github.com/caraldi/tcp-chat-server#readme"
 }
