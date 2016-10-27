@@ -1,0 +1,30 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "tcp-chat-lab-1",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha -w",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caraldi/tcp-chat-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caraldi/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/caraldi/tcp-chat-server#readme"
+}
