@@ -2,9 +2,11 @@
   "name": "tcp-chat-server-lab-assignment",
   "version": "1.0.0",
   "description": "TCP chat server assignment",
-  "main": "ChatRoom.js",
+  "main": "http-server.js",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint",
+    "test": "mocha",
+    "test:watch": "npm run test -- -w"
   },
   "repository": {
     "type": "git",
