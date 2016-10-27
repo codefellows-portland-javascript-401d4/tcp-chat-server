@@ -11,9 +11,10 @@ module.exports = class tcpChatRoom {
   add(client) {
     // client.id = 'chatter ' + (this.seed++);
     // assign random ID nickname between 1 ~ 9 for client
-    var randomID = Math.floor(Math.random()*10);
-    client.id = 'chatter ' + randomID;
-    client.write(`welcome to the discussion, ${client.id}`);
+    // var randomID = Math.floor(Math.random()*10);
+    // client.id = 'chatter ' + randomID;
+    // client.write(`welcome to the discussion, ${client.id}`);
+    client.write('welcome to the discussion');
     this.clients.push(client);
   }
   send(sender, message) {
@@ -22,7 +23,8 @@ module.exports = class tcpChatRoom {
       // to prevent sender from receiving their own message
       if(client === sender) return;
       // otherwise, send message to other clients in chat room
-      client.write(`${sender.id}: ${message}`);
+      // client.write(`${sender.id}: ${message}`);
+      client.write(message);
     });
   }
   remove(client) {
