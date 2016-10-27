@@ -5,7 +5,8 @@
   "main": "http-server.js",
   "scripts": {
     "lint": "eslint",
-    "test": "mocha",
+    "test": "npm run test:run",
+    "test:run": "mocha",
     "test:watch": "npm run test -- -w"
   },
   "repository": {
