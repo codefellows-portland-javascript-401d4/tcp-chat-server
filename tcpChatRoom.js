@@ -5,12 +5,15 @@
 
 module.exports = class tcpChatRoom {
   constructor() {
-    this.seed = 1;
+    // this.seed = 1;
     this.clients = [];
   }
   add(client) {
-    client.id = 'chatter ' + (this.seed++);
-    client.write("welcome to the discussion, " + `${client.id}`);
+    // client.id = 'chatter ' + (this.seed++);
+    // assign random ID nickname between 1 ~ 9 for client
+    var randomID = Math.floor(Math.random()*10);
+    client.id = 'chatter ' + randomID;
+    client.write(`welcome to the discussion, ${client.id}`);
     this.clients.push(client);
   }
   send(sender, message) {
@@ -19,9 +22,6 @@ module.exports = class tcpChatRoom {
       // to prevent sender from receiving their own message
       if(client === sender) return;
       // otherwise, send message to other clients in chat room
-      // randomize client ID before sending message
-      var randomID = Math.floor((Math.random()*10));
-      sender.id = 'chatter ' + randomID;
       client.write(`${sender.id}: ${message}`);
     });
   }

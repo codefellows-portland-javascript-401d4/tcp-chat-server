@@ -2,13 +2,15 @@
   "name": "tcp-chat-server",
   "version": "1.0.0",
   "description": "",
-  "main": "tcp.js",
+  "main": "tcpServer.js",
   "scripts": {
+    "start": "npm run test && node index.js",
     "pretest": "npm run lint",
     "test": "npm run test:run",
+    "test:run": "regex",
     "test:run": "mocha",
     "test:watch": "npm run test:run -- -w",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "eslint": "^3.8.1",
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "regex": "^0.1.1"
   }
 }
