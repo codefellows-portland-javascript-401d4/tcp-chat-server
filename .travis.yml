@@ -3,7 +3,8 @@ sudo: required
 node_js:
     - "6"
 env:
-    - "4"
+    - CXX=g++-4.8
+    
 addons:
     apt:
         sources:
