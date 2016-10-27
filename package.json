@@ -4,7 +4,7 @@
   "description": "",
   "main": "tcpServer.js",
   "scripts": {
-    "start": "npm run test && node index.js",
+    "start": "npm run test && node tcpServer.js",
     "pretest": "npm run lint",
     "test": "npm run test:run",
     "test:run": "mocha",
