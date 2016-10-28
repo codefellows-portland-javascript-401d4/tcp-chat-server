@@ -1,6 +1,8 @@
-const assert = require('chai').assert;
+const chai = require('chai');
+const assert = chai.assert;
 const fs = require('fs');
-const ChatRoom = require('./Chatroom'); 
+const ChatRoom = require('../lib/Chatroom'); 
+const server = require('../lib/tcpServer');
 
 class mockUser {
     write(text) {
@@ -12,7 +14,7 @@ const userOne = new mockUser;
 const userTwo = new mockUser;
 const chatRoom = new ChatRoom;
 
-describe('Chat Room', () => {
+describe('Unit tests Chat Room module', () => {
     it('checks to see if we can add new users', () => {
         chatRoom.add(userOne);
         assert.equal('client 1', chatRoom.clients[0].name, 'same first user in client');
