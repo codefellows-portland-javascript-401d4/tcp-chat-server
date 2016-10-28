@@ -1,7 +1,7 @@
 'use strict';
 
-var assert = require('chai').assert;
-var ChatRoom = require('../chat-room');
+const assert = require('chai').assert;
+const ChatRoom = require('../chat-room');
 
 describe('chat room', () => {
 
@@ -29,5 +29,12 @@ describe('chat room', () => {
         chatRoom.send(client2, 'hello world');
         assert.isOk(client1.received);
         assert.isNotOk(client2.received);
+    });
+
+    it('removes clients', () => {
+        chatRoom.remove(client1);
+        chatRoom.remove(client2);
+        assert.notInclude(chatRoom.currentUsers, client1.name);
+        assert.notInclude(chatRoom.currentUsers, client2.name);
     });
 });
