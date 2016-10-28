@@ -35,6 +35,7 @@ module.exports = class AIM {
 
         let userNum = randomNum(0, nameList.length - 1);
         let userName = nameList[userNum];
+        let arrivingUser = userName;
         
         if (!findNames(this.users)) {
             user.name = userName;
@@ -44,7 +45,11 @@ module.exports = class AIM {
             user.name = `${userName}${numAtEnd}`;
             this.users.push(user);
         }
-        // this.users.forEach((user) => console.log(user.name));
+        user.write(`Welcome, ${user.name}.`);
+        this.users.forEach((user) => {
+            if(user.name !== userName)
+                user.write(`${userName} has logged on.`);
+        });
         console.log(`User ${user.name} has connected.`);
     }
 
@@ -57,7 +62,11 @@ module.exports = class AIM {
 
     remove(user) {
         const userIndex = this.users.indexOf(user);
+        let leavingUser = user.name;
         if (userIndex !== -1) this.users.splice(userIndex, 1);
+        this.users.forEach((user) => {
+            if(user) user.write(`${leavingUser} has logged off.`);
+        });
         console.log(`User ${user.name} has disconnected.`);
     }
 };
