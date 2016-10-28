@@ -1,14 +1,14 @@
 const net = require('net');
 const assert = require('chai').assert;
-const server = require('../http-server.js');
+// const server = require('../http-server.js');
 
-const port = 65000;
+// const port = 65000;
 
-describe('server is testing', () => {
-    before(done => {
-        server.listen(port, done);
-    });
-});
+// describe('server is testing', () => {
+//     before(done => {
+//         server.listen(port, done);
+//     });
+// });
 
 describe('base functionality', () => {
     let client = null;
