@@ -98,8 +98,8 @@ describe('tcp chat server', () => {
 
             client2.once('data', data => {
                 assert.equal(data, 'guest-3 shall henceforth be known as MyNewName\n');
-                client4.once('data', data2 => {
-                    assert.equal(data2, 'guest-3 shall henceforth be known as MyNewName\n');
+                client4.once('data', data => {
+                    assert.equal(data, 'guest-3 shall henceforth be known as MyNewName\n');
                     done();
                 });
             });
