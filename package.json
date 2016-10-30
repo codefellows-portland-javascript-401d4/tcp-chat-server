@@ -1,0 +1,34 @@
+{
+  "name": "my-chat-server",
+  "version": "1.0.0",
+  "description": "A simple chat server",
+  "main": "tcp_chat.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "npm run test:run",
+    "test:run": "mocha",
+    "test:watch": "npm run test:run -- -w",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPGothro/tcp-chat-server.git"
+  },
+  "author": "@jpgothro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JPGothro/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/JPGothro/tcp-chat-server#readme"
+}
