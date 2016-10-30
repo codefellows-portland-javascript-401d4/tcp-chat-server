@@ -4,11 +4,12 @@
   "description": "tcp-chat-lab-1",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "mocha"
   },
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
+    "dog-names": "^1.0.2",
     "eslint": "^3.8.1",
     "mocha": "^3.1.2"
   },
