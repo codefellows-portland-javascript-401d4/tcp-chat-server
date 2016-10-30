@@ -15,7 +15,7 @@ describe('tcp chat server', () => {
         let client = null;
         before(done => {
             client = net.connect({ port: port }, err => {
-                if (err) done(err)
+                if (err) done(err);
                 else done();
             });
         });
@@ -40,7 +40,7 @@ describe('tcp chat server', () => {
 
         after(done => {
             // undocumented node feature, client.end takes a callback
-			client.end(done);
+            client.end(done);
 		});
     });
 
@@ -52,15 +52,15 @@ describe('tcp chat server', () => {
 
         before(done => {
             client2 = net.connect({ port: port }, err => {
-                if (err) done(err)
+                if (err) done(err);
                 else {
                     client2.setEncoding('utf-8');
                     client3 = net.connect({ port: port }, err => {
-                        if (err) done(err)
+                        if (err) done(err);
                         else {
                             client3.setEncoding('utf-8');
                             client4 = net.connect({ port: port }, err => {
-                                if (err) done(err)
+                                if (err) done(err);
                                 else {
                                     client4.setEncoding('utf-8');
                                     // ignore the 'Welcome message sent to all new clients.'
@@ -110,15 +110,15 @@ describe('tcp chat server', () => {
         
 
         after(done => {
-			client2.end();
+            client2.end();
             client3.end();
             client4.end(done);
-		});
+        });
 
     });
 
     after(done => {
 		server.close(done);
-	});
+    });
 
 });
