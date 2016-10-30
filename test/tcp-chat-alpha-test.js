@@ -2,7 +2,7 @@
 const assert = require('chai').assert;
 const ChatRoom = require('../lib/ChatRoom');
 
-describe('Chat room testing', () => {
+describe('Initial Chat room testing', () => {
     const chatRoom1 = new ChatRoom();
     const chatRoom2 = new ChatRoom();
 
