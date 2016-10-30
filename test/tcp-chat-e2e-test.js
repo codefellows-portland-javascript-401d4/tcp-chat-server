@@ -41,7 +41,7 @@ describe('tcp chat server', () => {
         after(done => {
             // undocumented node feature, client.end takes a callback
             client.end(done);
-		});
+        });
     });
 
     describe('Additional client Chat Room functionality', () => {
@@ -118,7 +118,7 @@ describe('tcp chat server', () => {
     });
 
     after(done => {
-		server.close(done);
+        server.close(done);
     });
 
 });
