@@ -26,6 +26,21 @@ describe('tcp chat server', () => {
             });
         });
 
-        it('creates clients')
+        it('creates users', () => {
+            assert.isOk(client);
+        });
+
+        it('welcomes users', () => {
+            const message = 'welcome to dog-chat! \n';
+
+            client.once('data', data => {
+                assert.equal(data, message);
+                done();
+            });
+        });
+
+        after(done => {
+            client.end(done);
+        });
     });
 });
