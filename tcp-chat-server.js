@@ -1,7 +1,7 @@
 'use strict';
 
 const net = require('net')
-const DogChat = require('./lib/dogChat');
+const DogChat = require(DogChat);
 const dogChat = new DogChat();
 
 const server = net.createServer(client => {
