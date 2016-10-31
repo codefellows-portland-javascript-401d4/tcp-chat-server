@@ -1,10 +1,22 @@
-# TCP Chat Lab 2
+## Overall Functionality
 
-* Includes tests and testing infrastructure
-* E2E tests cover the golden path functionalities of multiple clients signing up and receiving chat messages correctly 
++ A Code Fellows lab assignment 
++ Simple tcp chat server running on localhost:65000
++ Manages connecting clients and enables broadcasting of messages
+++ Clients given randomly generated dog name & ascii face
++ Includes tests and testing infrastructure
+++ e2e tests cover the golden path functionalities of multiple clients signing up and receiving chat messages correctly 
 
+## Guidance for Using Codebase
 
-## MIT License
++ Uses the following dependencies (refer to package.json for more information):
+++ chai 3.5.0,
+++ dog-ascii-faces 2.1.3
+++ dog-names: 1.0.2
+++ eslint: 3.8.1
+++ mocha: 3.1.2
+
+### MIT License
 
 Copyright (c) 2016 Caitlin Araldi
 
