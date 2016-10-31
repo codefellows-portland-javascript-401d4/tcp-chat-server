@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('chai').assert;
-const DogChat = require('../lib/DogChat');
+const DogChat = require('../lib/dogChat');
 
 describe('chat room', () => {
     const dogChat = new DogChat();
