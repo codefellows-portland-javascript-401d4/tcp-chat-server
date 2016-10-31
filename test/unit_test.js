@@ -1,8 +1,8 @@
 const assert = require('chai').assert;
 
-const ChatGroup = require('../chatGroup');
+const ChatGroup = require('../lib/chatGroup');
 
-describe('chat', () => {
+describe('Unit test - chat group messages', () => {
 
     const chatGroup = new ChatGroup();
 
