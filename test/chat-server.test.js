@@ -3,6 +3,7 @@
 const net = require('net');
 const assert = require('chai').assert;
 const server = require('../tcp-chat-server');
+const DogChat = require('../lib/dogChat');
 
 describe('tcp chat server', () => {
     const port = 65000;
