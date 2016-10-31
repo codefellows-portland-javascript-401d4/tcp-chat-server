@@ -6,15 +6,17 @@ The following are command line instructions for using the app.
 
 * After cloning the repo:
     * type 'npm install'
-* To run the app:
+* To launch the app & tests:
+    * type 'npm start'
+* To launch the app only:
     * type 'node index.js'
     * this creates a local tcp server, which will be listening on port 3000
     * when a new client connects, a message (i.e. 'client 53 connected!') is logged on the server
 * To connect as a new client:
     * open an additional terminal window
     * type 'telnet localhost 3000'
-    * a client name (i.e. 'client 53') will be randomly generated and a welcome message from the server will be logged on the client
+    * a client name (i.e. 'client 37') will be randomly generated and a welcome message from the server will be logged on the client
     * client is now able to type a message to chat with other clients
 * To disconnect a client:
     * escape character is 'CTRL + ]'
-    * type 'quit' and the telnet prompt
+    * type 'quit' at the telnet prompt in the command line
