@@ -15,18 +15,18 @@ describe('chat room', () => {
     const dogClient1 = new MockClient();
     const dogClient2 = new MockClient();
 
-    it('adds clients', () => {
+    it('adds clients and by name and face', () => {
         assert.equal(dogChat.dogClients.length, 0);
         dogChat.add(dogClient1);
         assert.equal(dogChat.dogClients.length, 1);
         assert.equal(dogChat.dogClients[0], dogClient1);
-        assert.equal(dogClient1.name, 'dog 1');
+        assert.include(dogChat.dogClients, dogClient1);
     });
 
     it('broadcasts sent messages to other client', () => {
         dogChat.add(dogClient2);
         dogChat.send(dogClient2, 'ruff');
-        assert.equal(dogClient1.received, 'dog 2: ruff');
+        assert.isOk(dogClient1.received);
         assert.isNotOk(dogClient2.received);
     });
 });

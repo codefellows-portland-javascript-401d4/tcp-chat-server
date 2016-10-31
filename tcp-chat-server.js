@@ -1,7 +1,6 @@
 'use strict';
 
 const net = require('net')
-const dogs = require('dog-ascii-faces');
 const DogChat = require('./lib/DogChat');
 const dogChat = new DogChat();
 
@@ -9,11 +8,10 @@ const server = net.createServer(client => {
     client.setEncoding('utf-8');
 
     dogChat.add(client);
-    client.write('Welcome to DogChat', client);
+    client.write('welcome to dog-chat! \n', client);
 
     client.on('data', message => {
         dogChat.send(client, message);
-        console.log(dogs());
     });
 
     client.on('close', () => {

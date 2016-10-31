@@ -1,15 +1,7 @@
-# TCP Chat Lab 1
-* Creates a chat server that manages connecting clients and enables broadcasting of messages
+# TCP Chat Lab 2
 
-* Uses the Node.js `net` module to create a chat server
-
-* Can connect clients using `telnet` command
-
-* Manage connected clients when they "register" (on server `connection` and socket `close`)
-
-* Clients should be given a randomly generated `nickname` used to identify who typed a message in the chat
-
-* When a client sends a message (on socket `data`) it should be "broadcast" to all other clients, _except for_ the client who sent the message
+* Includes tests and testing infrastructure
+* E2E tests cover the golden path functionalities of multiple clients signing up and receiving chat messages correctly 
 
 
 ## MIT License
