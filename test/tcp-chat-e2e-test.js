@@ -22,20 +22,9 @@ describe('tcp chat server', () => {
 
         it('send greeting when client connects', done => {
             client.once('data', data => {
-                assert.equal(data, 'Welcome');
+                assert.equal(data, 'Welcome\n');
                 done();
             });
-        });
-
-        it('client message echoed back', done => {
-            const message = 'echo my message';
-
-            client.once('data', data => {
-                assert.equal(data, message);
-                done();
-            });
-
-            client.write(message);
         });
 
         after(done => {
@@ -106,9 +95,7 @@ describe('tcp chat server', () => {
 
             client3.write(message);
         });
-
         
-
         after(done => {
             client2.end();
             client3.end();
