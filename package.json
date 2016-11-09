@@ -1,7 +1,7 @@
 {
   "name": "tcp-chat-server",
-  "version": "1.0.0",
-  "description": "10/24/16 401 assignment",
+  "version": "2.0.0",
+  "description": "2016-10-24 Code Fellows 401 Assignment",
   "main": "chat.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
   "homepage": "https://github.com/gnkatchmar/tcp-chat-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
     "sillyname": "^0.1.0"
   }
 }
