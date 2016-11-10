@@ -3,6 +3,13 @@
   "version": "2.0.0",
   "description": "2016-10-24 Code Fellows 401 Assignment",
   "main": "chat.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "npm run test:run",
+    "test:run": "mocha",
+    "test:watch": "npm run test:run -- -w",
+    "lint": "eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gnkatchmar/tcp-chat-server.git"
@@ -15,6 +22,7 @@
   "homepage": "https://github.com/gnkatchmar/tcp-chat-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.9.1",
     "mocha": "^3.1.2"
   },
   "dependencies": {
