@@ -40,58 +40,55 @@ describe('E2E echo server', () => {
     server.listen(port, done);
   });
 
-    /* combined server and client setup with increased nesting */
-    // before(done => {
-    //     server.listen(port, () => {
-    //         client = net.connect({ port: port });
-    //         client.setEncoding = 'utf-8';
-    //         done();
-    //     })
-    // });
-
   describe('basic client functionality', () => {
 
-    let client = null;
+    let client1 = null;
+    let client2 = null;
     before(done => {
-      client = net.connect({ port: port }, err => {
+      client1 = net.connect({ port: port }, err => {
         if (err) done(err);
         else {
-          client.setEncoding('utf-8');
+          client1.setEncoding('utf-8');
           done();
         }
       });
     });
+		//     before(done => {
+    //   client2 = net.connect({ port: port }, err => {
+    //     if (err) done(err);
+    //     else {
+    //       client2.setEncoding('utf-8');
+    //       done();
+    //     }
+    //   });
+    // });
 
-    it('says hello when client connects', done => {
-      client.once('data', data => {
+    it('says hello when client1 connects', done => {
+      client1.once('data', data => {
         console.log('first listener received', data.toString());
         assert.equal(data, 'hello');
         done();
       });
     });
 
-    it('client message echoed back', done => {
+    it('client1 message echoed back', done => {
       const message = 'echo me';
 
-      client.once('data', data => {
+      client1.once('data', data => {
         console.log('second listener received', data.toString());
         assert.equal(data, message);
         done();
       });
 
-      client.write(message);
+      client1.write(message);  //does this close client1? 
     });
+
+
 
     // after(done => {
     //         // undocumented node feature, client.end takes a callback
     //   client.end(done);
     // });
-  });
-
-  describe('some other client functionality', () => {
-        // setup client
-
-        // write tests...
   });
 
   // after(done => {
