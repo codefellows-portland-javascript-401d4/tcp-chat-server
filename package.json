@@ -2,7 +2,7 @@
   "name": "tcp-chat-server",
   "version": "2.0.0",
   "description": "2016-10-24 Code Fellows 401 Assignment",
-  "main": "chat.js",
+  "main": "echo-server.js",
   "scripts": {
     "pretest": "npm run lint",
     "test": "npm run test:run",
