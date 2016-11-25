@@ -24,7 +24,7 @@ describe('tcp Chat Room', () => {
   });
 
   it('broadcasts to other client', () => {
-    var randomID = Math.floor(Math.random()*10);  
+    var randomID = Math.floor(Math.random()*10);
     tcpChatRoom.add(client2);
     tcpChatRoom.send(client2, 'client ' + randomID + ': greetings');
     assert.include(client1.received, 'client ' + randomID + ': greetings');
@@ -32,7 +32,7 @@ describe('tcp Chat Room', () => {
   });
 
   it('removes client', () => {
-    tcpChatRoom.del(client2);
+    tcpChatRoom.remove(client2);
     assert.notInclude('tcpChatRoom', 'client 2', 'client2 has been deleted from tcpChatRoom');
 
   });
