@@ -24,10 +24,10 @@ describe('tcp Chat Room', () => {
   });
 
   it('broadcasts to other client', () => {
-    var randomID = Math.floor(Math.random()*10);
+    var randomID = Math.floor(Math.random()*10);  
     tcpChatRoom.add(client2);
     tcpChatRoom.send(client2, 'client ' + randomID + ': greetings');
-    assert.equal(client1.received, 'client ' + randomID + ': greetings');
+    assert.include(client1.received, 'client ' + randomID + ': greetings');
     assert.isNotOk(client2.received);
   });
 
