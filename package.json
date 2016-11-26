@@ -6,9 +6,14 @@
   "scripts": {
     "start": "npm run test && node tcpServer.js",
     "pretest": "npm run lint",
+<<<<<<< HEAD
     "test": "npm run test:run",
     "test:run": "mocha",
     "test:watch": "npm run test:run -- -w",
+=======
+    "test": "mocha",
+    "test:watch": "mocha -- -w",
+>>>>>>> 435b33bc4c15a790a75b2b523755431a09be1147
     "lint": "eslint ."
   },
   "repository": {
