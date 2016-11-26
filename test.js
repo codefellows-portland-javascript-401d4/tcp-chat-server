@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 const net = require('net');
 const assert = require('chai').assert;
-const server = require('./tcpServer');
+const server = require('./tcpServer'); // eslint-disable-line
 
 describe ('establish connection with tcp chat server', () => {
   const port = 65000;
@@ -59,13 +58,4 @@ describe ('establish connection with tcp chat server', () => {
     //   server.close(done);
     // });
   });
-=======
-// This Lab1 assignment does not require tests.
-// Therefore, to satisfy npm test requirements for mocha, created fake test.
-const assert = require('chai').assert;
-
-it('runs a fake test', done => {
-  assert('this assignment does not require tests', true);
-  done();
->>>>>>> 435b33bc4c15a790a75b2b523755431a09be1147
 });

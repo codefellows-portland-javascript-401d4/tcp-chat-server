@@ -11,16 +11,7 @@ module.exports = class tcpChatRoom {
   }
 
   add(client) {
-<<<<<<< HEAD
-    // client.id = 'chatter ' + (this.seed++);
-    // assign random ID nickname between 1 ~ 9 for client
-    // var randomID = Math.floor(Math.random()*10);
-    // client.id = 'chatter ' + randomID;
-    // client.write(`welcome to the discussion, ${client.id}`);
-    client.write('welcome to the discussion');
-=======
     client.name = 'client ' + (this.seed++);
->>>>>>> 435b33bc4c15a790a75b2b523755431a09be1147
     this.clients.push(client);
   }
 
@@ -28,16 +19,10 @@ module.exports = class tcpChatRoom {
     this.clients.forEach(client => {
       // if client is same as sender, then exit this forEach to prevent sender from receiving their own message
       if(client === sender) return;
-<<<<<<< HEAD
-      // otherwise, send message to other clients in chat room
-      // client.write(`${sender.id}: ${message}`);
-      client.write(message);
-=======
       // otherwise, randomize client ID and send message to other clients in chat room
       var randomID = Math.floor(Math.random()*10);
       client.id = 'client ' + randomID;
       client.write(`${sender.id}: ${message}`);
->>>>>>> 435b33bc4c15a790a75b2b523755431a09be1147
     });
   }
   remove(client) {
