@@ -24,9 +24,7 @@
     "url": "https://github.com/mizutombo/tcp-chat-server/issues"
   },
   "homepage": "https://github.com/mizutombo/tcp-chat-server#readme",
-  "dependencies": {
-    "cowsay": "^1.1.8"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",

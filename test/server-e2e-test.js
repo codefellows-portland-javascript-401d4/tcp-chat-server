@@ -1,13 +1,9 @@
 const net = require('net');
 const assert = require('chai').assert;
-const server = require('./tcpServer'); // eslint-disable-line
+const server = require('../tcpServer'); // eslint-disable-line
 
 describe ('establish connection with tcp chat server', () => {
   const port = 65000;
-
-  // before(done => {
-  //   server.listen(port, done);
-  // });
 
   describe ('test basic client server functionality', () => {
     let client = null;
@@ -21,41 +17,24 @@ describe ('establish connection with tcp chat server', () => {
       });
     });
 
-    it('says "welcome to the discussion" when client connects', done => {
+    it('acknowledges receipt of data from client', done => {
       client.once('data', data => {
-        const message = 'welcome to the discussion';
         console.log('first listener received', data.toString());
-        assert.equal(data, message);
-        done();
+        assert.include(data, 'greetings');
       });
+      done();
     });
 
-    it('says message', done => {
-      // const message = 'glad to be here';
+    it('confirms client disconnected from server', done => {
       client.once('data', data => {
-        const message = 'hello';
-        console.log('second listener received', data.toString());
+        const message = 'goodbye';
         assert.equal(data, message);
-        done();
       });
+      done();
     });
-
-    // it('confirms random single digit client ID nickname between 1 thru 9 when client sends message', done => {
-    //   client.once('data', data => {
-    //     console.log('check client ID', data);
-    //     var data_to_test = Math.floor((Math.random()*10));
-    //     var test = /[1-9]/.test(data_to_test);
-    //     console.log(test);
-    //     done();
-    //   });
-    // });
 
     after(done => {
       client.end(done);
     });
-
-    // after(done => {
-    //   server.close(done);
-    // });
   });
 });
