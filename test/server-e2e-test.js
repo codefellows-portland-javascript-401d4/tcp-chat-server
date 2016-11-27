@@ -21,16 +21,16 @@ describe ('establish connection with tcp chat server', () => {
       client.once('data', data => {
         console.log('first listener received', data.toString());
         assert.include(data, 'greetings');
+        done(); // test keeps timing out !!!
       });
-      done();
     });
 
     it('confirms client disconnected from server', done => {
       client.once('data', data => {
         const message = 'goodbye';
         assert.equal(data, message);
+        done(); // test keeps timing out !!!
       });
-      done();
     });
 
     after(done => {
