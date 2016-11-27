@@ -24,8 +24,8 @@ describe('Testing chat room', () => {
 
     it('Broadcast sends to other client', () => {
         chatRoom.add(testClient2);
-        chatRoom.send(testClient2, 'hello');
-        assert.equal(testClient1.received, 'Client 2: hello');
+        chatRoom.send(testClient2, 'howdy');
+        assert.equal(testClient1.received, 'Client 2: howdy');
         assert.isNotOk(testClient2.received);
     });
 });
