@@ -15,7 +15,7 @@ describe('Testing chat room', () => {
 
     it('Adds new clients', () => {
         assert.equal(chatRoom.clients.length, 0);
-        chatRoom.add(testClient1);
+        chatRoom.create(testClient1);
         // const client = {};
         assert.equal(chatRoom.clients.length, 1);
         assert.equal(chatRoom.clients[0], testClient1);
@@ -23,7 +23,7 @@ describe('Testing chat room', () => {
     });
 
     it('Broadcast sends to other client', () => {
-        chatRoom.add(testClient2);
+        chatRoom.create(testClient2);
         chatRoom.send(testClient2, 'howdy');
         assert.equal(testClient1.received, 'Client 2: howdy');
         assert.isNotOk(testClient2.received);

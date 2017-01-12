@@ -1,11 +1,12 @@
 {
   "name": "tcp-chat-server-lab-assignment",
   "version": "1.0.0",
-  "description": "TCP chat server assignment",
+  "description": "TCP chat server assignment, part 2",
   "main": "http-server.js",
   "scripts": {
     "lint": "eslint",
-    "test": "mocha",
+    "test": "npm run test:run",
+    "test:run": "mocha",
     "test:watch": "npm run test -- -w"
   },
   "repository": {
