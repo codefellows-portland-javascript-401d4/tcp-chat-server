@@ -50,7 +50,7 @@ describe('base functionality', () => {
         let echoMessage = 'echo me';
 
         client1.once('data', msg => {
-            console.log('second listener received', data.toString());
+            // console.log('second listener received', data.toString());
             assert.include(msg, echoMessage);
             done();
         });
