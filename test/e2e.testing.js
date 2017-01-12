@@ -41,7 +41,7 @@ describe('base functionality', () => {
     it('server welcomes client when they connect', (done) => {
         client1.once('data', data => {
             console.log('server message to client:', data.toString());
-            assert.equal(data, 'welcome new client\n');
+            assert.equal(data, 'hello new client');
             done();
         });
     });
