@@ -2,23 +2,21 @@ const net = require('net');
 const tcpChatRoom = require('./tcpChatRoom');
 const chatRoom = new tcpChatRoom();
 
-// create tcp server for chat room
-const server = net.createServer(client => {
-  client.setEncoding('utf-8');
+const chatRoomServer = net.createServer(guest => {
+  guest.setEncoding('utf-8');
 
-  chatRoom.add(client);
+  chatRoom.add(guest);
 
-  client.on('data', message => {
-    chatRoom.send(client, message);
+  guest.on('data', message => {
+    chatRoom.send(guest, message);
   });
-
-  client.on('close', () => {
-    chatRoom.remove(client);
+  guest.on('close', () => {
+    chatRoom.remove(guest);
   });
 });
 
 const port = 65000;
-server.listen(port, err => {
-  if (err) console.log('ERROR!', err);
-  else console.log('server listening on port', port);
+chatRoomServer.listen(port, err => {
+  if (err) console.log('500 - Internal Server Error!', err);
+  else console.log('Success! - chatRoomServer listening on port', port);
 });
