@@ -1,0 +1,23 @@
+{
+  "name": "tcpserver",
+  "version": "1.0.0",
+  "description": "practice tcp server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjfreem1/tcpServer.git"
+  },
+  "author": "mjfreem1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjfreem1/tcpServer/issues"
+  },
+  "homepage": "https://github.com/mjfreem1/tcpServer#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
