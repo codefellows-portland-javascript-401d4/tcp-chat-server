@@ -1,0 +1,35 @@
+{
+  "name": "bitmap-transformer",
+  "version": "1.0.0",
+  "description": "bitmap transformation api",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "mocha",
+    "test:watch": "npm run test -- -w",
+    "start": "nodemon lib/tcpServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timcombs/bitmap-transformer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timcombs/bitmap-transformer/issues"
+  },
+  "homepage": "https://github.com/timcombs/bitmap-transformer#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2",
+    "net": "^1.0.2",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.5.4"
+  },
+  "dependencies": {}
+}
